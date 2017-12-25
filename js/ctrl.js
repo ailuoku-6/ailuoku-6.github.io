@@ -38,7 +38,7 @@ var music_video = [
 
 var design = [
   {site_name:"创意人",url:"http://www.ccihr.com"},
-  {site_name:"生活糖果",url:"http://lifecandy.cn"},
+  {site_name:"全景网",url:"http://www.quanjing.com/"},
   {site_name:"花瓣网",url:"http://www.huaban.com"},
   {site_name:"UI中国",url:"http://www.ui.cn/"},
   {site_name:"千图网",url:"http://www.58pic.com/"},
