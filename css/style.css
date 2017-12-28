@@ -110,7 +110,7 @@ footer{
     width: 165px;
   }
   .site{
-    margin: 0 2px;
+    margin: 0 3px;
   }
   .site-card{
     margin: 15px 0px 0px 0px;
@@ -118,7 +118,7 @@ footer{
 }
 @media screen and (min-width:350px){
   .site{
-    margin: 0 7.5px;
+    margin: 0 8px;
   }
 }
 @media screen and (min-width:375px){
@@ -126,7 +126,7 @@ footer{
     width: 216px;
   }
   .site{
-    margin: 0 10px;
+    margin: 0 12px;
   }
 }
 @media screen and (min-width:425px){
@@ -134,7 +134,7 @@ footer{
     width: 270px;
   }
   .site{
-    margin: 0 4px;
+    margin: 0 5px;
   }
 }
 @media screen and (min-width:600px){
@@ -142,7 +142,7 @@ footer{
     width: 320px;
   }
   .site{
-    margin: 0 px;
+    margin: 0 11px;
   }
   .mdui-col-sm-6{
     width: 48.6%;
@@ -153,12 +153,10 @@ footer{
     width: 500px;
   }
   .site{
-    margin: 0 25px;
+    margin: 0 27px;
   }
   .site-card{
     margin: 15px 5px 0px 5px;
-  }
-  .site-card{
     background-color: rgba(250, 250, 250, 0.90);
   }
   #first_container{
@@ -169,6 +167,9 @@ footer{
   #seacing_bar{
     width: 470px;
   }
+  .site{
+    margin: 0 20px;
+  }
   .site-card{
     margin: 15px 3px 0px 3px;
   }
@@ -178,7 +179,7 @@ footer{
     width: 500px;
   }
   .site{
-    margin: 0 7px;
+    margin: 0 9px;
   }
   .mdui-col-md-4{
     width: 32.7%;
@@ -189,15 +190,12 @@ footer{
     width: 680px;
   }
   .site{
-    margin: 0 15px;
+    margin: 0 17px;
   }
 }
 @media screen and (min-width:1440px){
   #seacing_bar{
     width: 680px;
-  }
-  .site{
-    margin: 0 15px;
   }
   .mdui-col-lg-3{
     width: 24.6%;
