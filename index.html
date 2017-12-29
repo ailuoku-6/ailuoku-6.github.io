@@ -54,9 +54,10 @@
         <div v-for="category in categorylist" class="site-card mdui-col-xs-12 mdui-col-sm-6 mdui-col-md-4 mdui-shadow-2">
           <div class="mdui-text-color-blue-900 title">{{category.categoryname}}</div>
           <div class="mdui-divider mdui-divider-coustom"></div>
-          <ul class="mdui-list">
-            <li v-for="sitelist in category.sitelist" class="site-noicon mdui-hoverable"><a v-bind:href="sitelist.url" target="_blank">{{sitelist.site_name}}</a></li>
-          </ul>
+          <div class="mdui-list">
+            <!-- <li v-for="sitelist in category.sitelist"><a v-bind:href="sitelist.url" target="_blank" class="site-noicon mdui-hoverable">{{sitelist.site_name}}</a></li> -->
+            <a v-for="sitelist in category.sitelist" v-bind:href="sitelist.url" target="_blank" class="site-noicon mdui-hoverable">{{sitelist.site_name}}</a>
+          </div>
         </div>
       </div>
   </div>

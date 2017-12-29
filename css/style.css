@@ -65,6 +65,7 @@ header{
 }
 .site-title{
   text-align: center;
+  white-space: nowrap;
 }
 .mdui-container-fluid{
   margin-top: 10px;
@@ -78,6 +79,7 @@ header{
   margin: 15px 3px 0px 3px;
   background-color: rgba(250, 250, 250, 1.0);
 }
+
 .site-noicon{
   display: inline-block;
   padding: 5px 10px;
