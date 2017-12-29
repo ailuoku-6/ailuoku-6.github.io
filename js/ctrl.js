@@ -9,8 +9,6 @@ $$(function () {
   });
 });
 
-
-
 function checkHttps () {
   BaiduHttps.useHttps();
 };

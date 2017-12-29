@@ -1,6 +1,4 @@
 
-
-
 var allsite = new Vue({
   el:"#allsite",
   data:{

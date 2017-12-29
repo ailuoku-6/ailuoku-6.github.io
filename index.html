@@ -7,7 +7,7 @@
   <meta name="baidu-site-verification" content="W03XQFmGwe" />
   <link rel="stylesheet" href="https://cdn.bootcss.com/mdui/0.3.0/css/mdui.min.css">
   <link rel="stylesheet" href="css/style.css">
-  <script src="https://cdn.bootcss.com/vue/2.5.13/vue.js"></script>
+  <script src="https://cdn.bootcss.com/vue/2.5.13/vue.min.js"></script>
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
   <style media="screen">
     #seacing_bar{
@@ -24,7 +24,6 @@
   <header class="mdui-appbar mdui-appbar-fixed mdui-shadow-0 mdui-hoverable">
     <div class="mdui-tab">
       <div class="mdui-toolbar-spacer"></div>
-      <!-- <form class="sear_wrap" onsubmit="return baiduWithHttps(this)" action="http://www.baidu.com/baidu" target="_blank"> -->
       <form class="sear_wrap" onsubmit="return baiduWithHttps(this)" action="http://www.baidu.com/s" target="_blank">
         <div class="sear_marchine"></div>
         <input autocomplete="off" type="text" onfocus="checkHttps" name="wd" size="30" id="seacing_bar" placeholder="搜你所想" baidusug="1">
@@ -55,19 +54,16 @@
           <div class="mdui-text-color-blue-900 title">{{category.categoryname}}</div>
           <div class="mdui-divider mdui-divider-coustom"></div>
           <div class="mdui-list">
-            <!-- <li v-for="sitelist in category.sitelist"><a v-bind:href="sitelist.url" target="_blank" class="site-noicon mdui-hoverable">{{sitelist.site_name}}</a></li> -->
-            <a v-for="sitelist in category.sitelist" v-bind:href="sitelist.url" target="_blank" class="site-noicon mdui-hoverable">{{sitelist.site_name}}</a>
+            <li v-for="sitelist in category.sitelist" class="site-noicon mdui-hoverable"><a v-bind:href="sitelist.url" target="_blank">{{sitelist.site_name}}</a></li>
           </div>
         </div>
       </div>
   </div>
 
-
   <footer class="mdui-valign">
     <div class="mdui-center about">
       <div>BY <a href="http://weibo.com/ailuoku6" target="_blank">@爱咯酷6</a> ,Version:V1.1</div>
       <div>提建议: <a href="http://wpa.qq.com/msgrd?v=3&uin=2275789909&site=qq&menu=yes" target="_blank"><img src="img/kefu.png"></a></div>
-      <div></div>
     </div>
   </footer>
   <script type="text/javascript" src="http://tajs.qq.com/stats?sId=64876880" charset="UTF-8"></script>
@@ -77,6 +73,5 @@
 <script src="https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/cache/static/protocol/https/global/js/all_async_search_d111b96.js" charset="utf-8"></script>
 <script charset="gbk" src="http://www.baidu.com/js/opensug.js"></script>
 <script src="js/ctrl.js" charset="utf-8"></script>
-<!-- <script src="js/index.js" charset="utf-8"></script> -->
 <script src="js/index.js" charset="utf-8"></script>
 </html>
