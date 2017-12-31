@@ -3,10 +3,10 @@ var allsite = new Vue({
   el:"#allsite",
   data:{
     comsitelist:[
-      {site_name:"百度",url:"http://www.baidu.com/",icon:"img/baidu.png"},
-      {site_name:"淘宝",url:"http://www.taobao.com",icon:"img/taobao.png"},
-      {site_name:"京东",url:"http://www.jd.com",icon:"img/jd.png"},
-      {site_name:"知乎",url:"http://www.zhihu.com",icon:"img/zhihu.png"},
+      {site_name:"百度",url:"https://www.baidu.com/",icon:"img/baidu.png"},
+      {site_name:"淘宝",url:"https://www.taobao.com",icon:"img/taobao.png"},
+      {site_name:"京东",url:"https://www.jd.com",icon:"img/jd.png"},
+      {site_name:"知乎",url:"https://www.zhihu.com",icon:"img/zhihu.png"},
       {site_name:"谷歌翻译",url:"https://translate.google.cn/",icon:"img/googlefanyi.png"},
       {site_name:"Github",url:"https://www.github.com",icon:"img/github.png"},
       {site_name:"QQ邮箱",url:"https://mail.qq.com",icon:"img/qqmail.png"},
