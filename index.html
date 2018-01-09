@@ -31,15 +31,13 @@
   <title>GY上网导航</title>
 </head>
 <body>
-  <header class="mdui-appbar mdui-appbar-fixed mdui-shadow-0 mdui-hoverable">
-    <div class="mdui-tab">
-      <div class="mdui-toolbar-spacer"></div>
+  <header class="nav-header">
+    <div class="gy-nav-header mdui-hoverable">
       <form class="sear_wrap" onsubmit="return baiduWithHttps(this)" action="https://www.baidu.com/s" target="_blank">
         <div class="sear_marchine"></div>
         <input autocomplete="off" type="text" onfocus="checkHttps" name="wd" size="30" id="seacing_bar" placeholder="搜你所想" baidusug="1">
         <input class="mdui-btn mdui-color-indigo" id="seaching" type="submit" value="百度一下">
       </form>
-      <div class="mdui-toolbar-spacer"></div>
     </div>
   </header>
   <div id="allsite">

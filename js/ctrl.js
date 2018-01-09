@@ -3,9 +3,9 @@ var $$ = mdui.JQ;
 
 $$(function () {
   // appbar 自动隐藏
-  var $appbar = $$('.mdui-appbar');
+  var $appbar = $$('.gy-nav-header');
   $$(window).on('scroll', function () {
-    $appbar[$$('header').offset().top === 0 ? 'addClass' : 'removeClass']('mdui-shadow-0');
+    $appbar[$$('.gy-nav-header').offset().top === 0 ? 'removeClass' : 'addClass']('mdui-shadow-2');
   });
 });
 

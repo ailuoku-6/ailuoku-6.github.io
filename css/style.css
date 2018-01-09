@@ -4,11 +4,21 @@ body{
 }
 header{
   background-color: #FAFAFA;
+  z-index: 100;
+}
+.gy-nav-header{
+  width: 100%;
+  display: flex;
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+  background-color: #FAFAFA;
+  top: 0;
+  z-index: 100;
+  height: 70px;
 }
 .sear_wrap{
   text-align: center;
-  margin-top: 15px;
-  margin-bottom: 15px;
   border: 1px solid #3083ff;
   outline: 0;
   background-color: #fff;
@@ -152,8 +162,14 @@ footer{
   }
 }
 @media screen and (min-width:768px){
+  .gy-nav-header{
+    height: 90px;
+  }
   #seacing_bar{
     width: 500px;
+  }
+  #first_container{
+    margin-top: 105px;
   }
   .site{
     margin: 0 27px;
@@ -178,8 +194,14 @@ footer{
   }
 }
 @media screen and (min-width:1024px){
+  .gy-nav-header{
+    height: 110px;
+  }
   #seacing_bar{
     width: 500px;
+  }
+  #first_container{
+    margin-top: 125px;
   }
   .site{
     margin: 0 9px;
