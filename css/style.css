@@ -102,6 +102,10 @@ footer{
   height: 100px;
   margin-top: 20px;
   background-color: #2f2f29;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 .about{
   color: #ffffff;
