@@ -1,13 +1,12 @@
 
 var $$ = mdui.JQ;
 
-$$(function () {
-  // appbar 自动隐藏
-  var $appbar = $$('.gy-nav-header');
-  $$(window).on('scroll', function () {
-    $appbar[$$('.gy-nav-header').offset().top === 0 ? 'removeClass' : 'addClass']('mdui-shadow-2');
-  });
-});
+// $$(function () {
+//   var $appbar = $$('.gy-nav-header');
+//   $$(window).on('scroll', function () {
+//     $appbar[$$('.gy-nav-header').offset().top === 0 ? 'removeClass' : 'addClass']('gy-shadow-2');
+//   });
+// });
 
 function checkHttps () {
   BaiduHttps.useHttps();

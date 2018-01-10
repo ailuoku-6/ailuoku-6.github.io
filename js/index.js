@@ -98,5 +98,22 @@ var allsite = new Vue({
         ],
       },
     ],
+    scrolled:false,
   },
+  methods: {
+    handleScroll () {
+      if ((window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop) == 0) {
+        this.scrolled = false;
+      }else {
+        this.scrolled = true;
+      }
+    }
+  },
+  mounted () {
+    window.addEventListener('scroll', this.handleScroll)
+  },
+  destroyed () {
+    window.removeEventListener('scroll', this.handleScroll)
+  },
+
 });

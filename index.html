@@ -40,49 +40,49 @@
   <title>GY上网导航</title>
 </head>
 <body>
-  <header class="nav-header">
-    <div class="gy-nav-header mdui-hoverable">
-      <form class="sear_wrap" onsubmit="return baiduWithHttps(this)" action="https://www.baidu.com/s" target="_blank">
-        <div class="sear_marchine"></div>
-        <input autocomplete="off" type="text" onfocus="checkHttps" name="wd" size="30" id="seacing_bar" placeholder="搜你所想" baidusug="1">
-        <input class="mdui-btn mdui-color-indigo" id="seaching" type="submit" value="百度一下">
-      </form>
-    </div>
-  </header>
   <div id="allsite">
-    <div class="mdui-container mdui-shadow-2" id="first_container">
-      <div class="mdui-text-color-blue-900 title" id="">常用站点</div>
-      <div class="mdui-divider"></div>
-        <ul class="mdui-list">
-          <li v-for="sitelist in comsitelist" class="site mdui-hoverable">
-            <a v-bind:href="sitelist.url" target="_blank">
-              <div>
-                <img v-bind:src="sitelist.icon" class="site-icon">
-              </div>
-              <span class="site-title">{{sitelist.site_name}}</span>
-            </a>
-          </li>
-        </ul>
-
+    <header class="nav-header">
+      <div class="gy-nav-header gy-hoverable" v-bind:class="{'gy-shadow-2': scrolled}">
+        <form class="sear_wrap" onsubmit="return baiduWithHttps(this)" action="https://www.baidu.com/s" target="_blank">
+          <div class="sear_marchine"></div>
+          <input autocomplete="off" type="text" onfocus="checkHttps" name="wd" size="30" id="seacing_bar" placeholder="搜你所想" baidusug="1">
+          <input class="gy-button" id="seaching" type="submit" value="百度一下">
+        </form>
       </div>
-      <div class="mdui-container-fluid">
+    </header>
+      <div class="mdui-container gy-shadow-2" id="first_container">
+        <div class="mdui-text-color-blue-900 title" id="">常用站点</div>
+        <div class="gy-divider"></div>
+          <ul class="mdui-list">
+            <li v-for="sitelist in comsitelist" class="site gy-hoverable">
+              <a v-bind:href="sitelist.url" target="_blank">
+                <div>
+                  <img v-bind:src="sitelist.icon" class="site-icon">
+                </div>
+                <span class="site-title">{{sitelist.site_name}}</span>
+              </a>
+            </li>
+          </ul>
 
-        <div v-for="category in categorylist" class="site-card mdui-col-xs-12 mdui-col-sm-6 mdui-col-md-4 mdui-shadow-2">
-          <div class="mdui-text-color-blue-900 title">{{category.categoryname}}</div>
-          <div class="mdui-divider mdui-divider-coustom"></div>
-          <div class="mdui-list">
-            <li v-for="sitelist in category.sitelist" class="site-noicon mdui-hoverable"><a v-bind:href="sitelist.url" target="_blank">{{sitelist.site_name}}</a></li>
+        </div>
+        <div class="mdui-container-fluid">
+
+          <div v-for="category in categorylist" class="site-card mdui-col-xs-12 mdui-col-sm-6 mdui-col-md-4 gy-shadow-2">
+            <div class="mdui-text-color-blue-900 title">{{category.categoryname}}</div>
+            <div class="gy-divider"></div>
+            <div class="mdui-list">
+              <li v-for="sitelist in category.sitelist" class="site-noicon gy-hoverable"><a v-bind:href="sitelist.url" target="_blank">{{sitelist.site_name}}</a></li>
+            </div>
           </div>
         </div>
-      </div>
-  </div>
 
-  <footer>
-    <div class="about">
-      <div>BY <a href="http://weibo.com/ailuoku6" target="_blank">@爱咯酷6</a> ,Version:V1.1</div>
-      <div>提建议: <a href="http://wpa.qq.com/msgrd?v=3&uin=2275789909&site=qq&menu=yes" target="_blank"><img src="img/kefu.png"></a></div>
-    </div>
-  </footer>
+    <footer>
+      <div class="about">
+        <div>BY <a href="http://weibo.com/ailuoku6" target="_blank">@爱咯酷6</a> ,Version:V1.1</div>
+        <div>提建议: <a href="http://wpa.qq.com/msgrd?v=3&uin=2275789909&site=qq&menu=yes" target="_blank"><img src="img/kefu.png"></a></div>
+      </div>
+    </footer>
+  </div>
 
   <script type="text/javascript" color="255,87,34" opacity='1.0' zIndex="-3" count="66" src="https://cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.js"></script>
 </body>
