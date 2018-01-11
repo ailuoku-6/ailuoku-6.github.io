@@ -5,17 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="baidu-site-verification" content="W03XQFmGwe" />
-  <link rel="stylesheet" href="https://cdn.bootcss.com/mdui/0.4.0/css/mdui.min.css">
-  <link rel="stylesheet" href="css/style.css">
   <script src="https://cdn.bootcss.com/vue/2.5.13/vue.min.js"></script>
+  <link href="https://cdn.bootcss.com/iview/2.8.0/styles/iview.css" rel="stylesheet">
+  <script src="https://cdn.bootcss.com/iview/2.8.0/iview.min.js"></script>
+  <link rel="stylesheet" href="css/style.css">
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
   <style media="screen">
     #seacing_bar{
       overflow: hidden;
-    }
-    .site-noicon:hover{
-      color: #E65100;
-      text-decoration: underline;
     }
     footer{
       height: 100px;
@@ -50,11 +47,13 @@
         </form>
       </div>
     </header>
-      <div class="mdui-container gy-shadow-2" id="first_container">
-        <div class="mdui-text-color-blue-900 title" id="">常用站点</div>
-        <div class="gy-divider"></div>
-          <ul class="mdui-list">
-            <li v-for="sitelist in comsitelist" class="site gy-hoverable">
+      <div class="gy-container gy-shadow-2" id="first_container">
+        <div class="title" id="">常用站点</div>
+        <div class="gy-divider gy-divider-coustom"></div>
+
+        <Row type="flex" justify="space-around" class="code-row-bg">
+          <i-col v-for="sitelist in comsitelist" :xs="8" :md="2" class="gy-cell">
+            <li class="site gy-hoverable">
               <a v-bind:href="sitelist.url" target="_blank">
                 <div>
                   <img v-bind:src="sitelist.icon" class="site-icon">
@@ -62,18 +61,22 @@
                 <span class="site-title">{{sitelist.site_name}}</span>
               </a>
             </li>
-          </ul>
+          </i-col>
+        </Row>
 
         </div>
-        <div class="mdui-container-fluid">
-
-          <div v-for="category in categorylist" class="site-card mdui-col-xs-12 mdui-col-sm-6 mdui-col-md-4 gy-shadow-2">
-            <div class="mdui-text-color-blue-900 title">{{category.categoryname}}</div>
-            <div class="gy-divider"></div>
-            <div class="mdui-list">
-              <li v-for="sitelist in category.sitelist" class="site-noicon gy-hoverable"><a v-bind:href="sitelist.url" target="_blank">{{sitelist.site_name}}</a></li>
-            </div>
-          </div>
+        <div class="gy-container-full">
+          <Row>
+            <i-col v-for="category in categorylist" :xs="24" :md="8">
+              <div class="site-card gy-shadow-2">
+                <div class="title">{{category.categoryname}}</div>
+                <div class="gy-divider"></div>
+                <div class="gy-list">
+                  <li v-for="sitelist in category.sitelist" class="site-noicon gy-hoverable"><a v-bind:href="sitelist.url" target="_blank">{{sitelist.site_name}}</a></li>
+                </div>
+              </div>
+            </i-col>
+          </Row>
         </div>
 
     <footer>
@@ -86,9 +89,21 @@
 
   <script type="text/javascript" color="255,87,34" opacity='1.0' zIndex="-3" count="66" src="https://cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.js"></script>
 </body>
-<script src="https://cdn.bootcss.com/mdui/0.4.0/js/mdui.min.js" charset="utf-8"></script>
-<!-- <script src="https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/cache/static/protocol/https/global/js/all_async_search_d111b96.js" charset="utf-8"></script> -->
+<script src="https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/cache/static/protocol/https/global/js/all_async_search_d111b96.js" charset="utf-8"></script>
 <script charset="gbk" src="https://baiduinc.github.io/opensug/opensug.js"></script>
-<script src="js/ctrl.js" charset="utf-8"></script>
 <script src="js/index.js" charset="utf-8"></script>
+<script type="text/javascript">
+  function checkHttps () {
+    BaiduHttps.useHttps();
+  };
+  function baiduWithHttps (formname) {
+    var data = BaiduHttps.useHttps();
+    if (data.s === 0) {
+      return true;
+    }else {
+      formname.action = 'https://www.baidu.com/baidu' + '?ssl_s=1&ssl_c' + data.ssl_code;
+      return true;
+    }
+  };
+</script>
 </html>
