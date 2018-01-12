@@ -95,6 +95,14 @@
     list-style: none;
     background-color: transparent;
 }
+
+.floatButton{
+  display: block;
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  color: #3f51b5;
+}
 /* 实现一些效果的代码 */
 
 
@@ -287,6 +295,10 @@ a:hover{
   .gy-container {
     width: 94%;
   }
+  .floatButton{
+    right: 30px;
+    bottom: 30px;
+  }
 }
 @media screen and (min-width:768px){
   .gy-nav-header{
@@ -298,16 +310,18 @@ a:hover{
   #first_container{
     margin-top: 105px;
   }
-  .site-card{
-    background-color: rgba(250, 250, 250, 0.90);
-  }
-  #first_container{
-    background-color: rgba(250, 250, 250, 0.90);
+  .floatButton{
+    right: 33px;
+    bottom: 33px;
   }
 }
 @media screen and (min-width:960px){
   #seacing_bar{
     width: 470px;
+  }
+  .floatButton{
+    right: 39px;
+    bottom: 39px;
   }
 }
 @media screen and (min-width:1024px){

@@ -152,6 +152,13 @@ var allsite = new Vue({
         this.sel_index = (this.myData.length+this.sel_index)%this.myData.length;
         this.keyword=this.myData[this.sel_index];
     },
+    info:function (){
+      this.$Message.info({
+        content: '如果布局混乱，请尝试清除浏览器缓存！',
+        duration: 3,
+        closable: true
+      });
+    }
   },
   mounted:function () {
     window.addEventListener('scroll', this.handleScroll);
