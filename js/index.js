@@ -117,7 +117,6 @@ var allsite = new Vue({
     },
     clickitem:function (value){
       this.$refs.input_area.blur();
-      console.log(this.$refs.input_area.value);
       window.open('https://www.baidu.com/s?wd='+value);
     },
     baiduyixia:function (){
