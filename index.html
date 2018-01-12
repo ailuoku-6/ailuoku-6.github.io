@@ -45,7 +45,7 @@
         <div class="sear_wrap">
           <div class="sear_marchine"></div>
           <input type="text"  id="seacing_bar" placeholder="搜你所想" v-model="keyword" @keyup="get($event)" @keydown.down.prevent="selectDown"
-    @keydown.up.prevent="selectUp" autocomplete="off">
+    @keydown.up.prevent="selectUp" ref="input_area" autocomplete="off">
           <div class="gy-button" id="seaching" v-on:click="baiduyixia()">百度一下</div>
           <ul class="sug" v-show="isShow">
             <li v-for="(value,index) in myData"  :class="{selected:index==sel_index}" v-on:click="clickitem(value)">{{value}}</li>
