@@ -97,11 +97,13 @@
 }
 
 .floatButton{
-  display: block;
+  display: inline-block;
   position: fixed;
   bottom: 25px;
   right: 25px;
   color: #3f51b5;
+  margin: auto;
+  z-index: 10000;
 }
 /* 实现一些效果的代码 */
 
