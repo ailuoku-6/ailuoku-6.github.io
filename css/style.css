@@ -151,6 +151,9 @@ header{
 }
 .sug li {
   width: 100%;
+  text-align: left;
+  padding-left: 10px;
+  font-size: 15px;
 }
 .sug li:hover{
   background-color: #c873ff;
