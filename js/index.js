@@ -105,7 +105,7 @@ var allsite = new Vue({
     isShow :false
   },
   methods: {
-    handleScroll () {
+    handleScroll:function() {
       if ((window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop) == 0) {
         this.scrolled = false;
       }else {
@@ -115,10 +115,10 @@ var allsite = new Vue({
     hidesug:function(){
       this.isShow = false;
     },
-    clickitem(value){
+    clickitem:function (value){
       window.open('https://www.baidu.com/s?wd='+value);
     },
-    baiduyixia(){
+    baiduyixia:function (){
       window.open('https://www.baidu.com/s?wd='+this.keyword);
     },
     get:function (event) {
@@ -153,10 +153,10 @@ var allsite = new Vue({
         this.keyword=this.myData[this.sel_index];
     },
   },
-  mounted () {
+  mounted:function () {
     window.addEventListener('scroll', this.handleScroll);
   },
-  destroyed () {
+  destroyed:function () {
     window.removeEventListener('scroll', this.handleScroll)
   },
 

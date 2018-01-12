@@ -209,7 +209,6 @@ a:hover{
   padding: 3px;
 }
 .site-icon{
-  /*height: 133px;*/
   width: 70px;
   height: 70px;
 }
@@ -230,7 +229,7 @@ a:hover{
 }
 .site-card{
   padding-bottom: 8px;
-  margin: 15px 3px 0px 3px;
+  margin: 15px 0px 0px 0px;
   background-color: rgba(250, 250, 250, 1.0);
   padding-left: 8px;
 }
@@ -263,9 +262,6 @@ a:hover{
 @media screen and (min-width:320px){
   #seacing_bar{
     width: 165px;
-  }
-  .site-card{
-    margin: 15px 0px 0px 0px;
   }
 }
 @media screen and (min-width:375px){
@@ -300,7 +296,6 @@ a:hover{
     margin-top: 105px;
   }
   .site-card{
-    margin: 15px 5px 0px 5px;
     background-color: rgba(250, 250, 250, 0.90);
   }
   #first_container{
@@ -310,9 +305,6 @@ a:hover{
 @media screen and (min-width:960px){
   #seacing_bar{
     width: 470px;
-  }
-  .site-card{
-    margin: 15px 3px 0px 3px;
   }
 }
 @media screen and (min-width:1024px){

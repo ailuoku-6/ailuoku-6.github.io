@@ -72,8 +72,8 @@
         </div>
 
         <div class="gy-container-full">
-          <Row>
-            <i-col v-for="category in categorylist" :xs="24" :md="8">
+          <Row :gutter="16" type="flex" justify="center" align="top">
+            <i-col v-for="category in categorylist" :xs="24" :sm="12" :md="8">
               <div class="site-card gy-shadow-2">
                 <div class="title">{{category.categoryname}}</div>
                 <div class="gy-divider"></div>
