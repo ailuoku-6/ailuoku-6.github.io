@@ -95,15 +95,22 @@
     list-style: none;
     background-color: transparent;
 }
-
 .floatButton{
   display: inline-block;
   position: fixed;
   bottom: 25px;
   right: 25px;
+  height: 24px;
   color: #3f51b5;
   margin: auto;
   z-index: 10000;
+  padding: 0!important;
+  margin: auto;
+  overflow: hidden;
+  line-height: normal!important;
+  border-radius: 50%;
+  -webkit-box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
+  box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
 }
 /* 实现一些效果的代码 */
 
