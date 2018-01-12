@@ -171,10 +171,15 @@ header{
   text-align: left;
   padding-left: 10px;
   font-size: 15px;
+  display: flex;
 }
 .sug li:hover{
   background-color: #c873ff;
   color: #fff;
+}
+.sug li a{
+  width: 100%;
+  height: 100%;
 }
 .selected{
   background-color: #3f51b5;

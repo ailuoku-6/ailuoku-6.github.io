@@ -48,7 +48,7 @@
     @keydown.up.prevent="selectUp" ref="input_area" autocomplete="off">
           <div class="gy-button" id="seaching" v-on:click="baiduyixia()">百度一下</div>
           <ul class="sug" v-show="isShow">
-            <li v-for="(value,index) in myData"  :class="{selected:index==sel_index}" v-on:click="clickitem(value)">{{value}}</li>
+            <li v-for="(value,index) in myData"  :class="{selected:index==sel_index}"><a v-bind:href="['https://www.baidu.com/s?wd='+value]">{{value}}</a></li>
           </ul>
         </div>
       </div>

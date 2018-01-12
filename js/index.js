@@ -115,10 +115,6 @@ var allsite = new Vue({
     hidesug:function(){
       this.isShow = false;
     },
-    clickitem:function (value){
-      this.$refs.input_area.blur();
-      window.open('https://www.baidu.com/s?wd='+value);
-    },
     baiduyixia:function (){
       window.open('https://www.baidu.com/s?wd='+this.keyword);
     },
