@@ -99,6 +99,10 @@ var allsite = new Vue({
       },
     ],
     scrolled:false,
+    myData:[],
+    keyword:'',
+    sel_index:-1,
+    isShow :false
   },
   methods: {
     handleScroll () {
@@ -107,10 +111,50 @@ var allsite = new Vue({
       }else {
         this.scrolled = true;
       }
-    }
+    },
+    hidesug:function(){
+      this.isShow = false;
+    },
+    clickitem(value){
+      window.open('https://www.baidu.com/s?wd='+value);
+    },
+    baiduyixia(){
+      window.open('https://www.baidu.com/s?wd='+this.keyword);
+    },
+    get:function (event) {
+      if(event.keyCode==38||event.keyCode==40)return;
+      if(event.keyCode==13){
+          window.open('https://www.baidu.com/s?wd='+this.keyword);
+      }
+      this.$http.jsonp('https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd',{
+          wd:this.keyword
+      },{
+          jsonp:'cb'
+      }).then(function (res) {
+          this.myData=res.data.s;
+      },function () {
+
+      });
+      this.sel_index =-1;
+      if (this.keyword.replace(/(^s*)|(s*$)/g, "")!="") {
+        this.isShow = true;
+      }else {
+        this.isShow = false;
+      }
+    },
+    selectDown:function () {
+        this.sel_index++;
+        if(this.sel_index==this.myData.length)this.sel_index=-1;
+        this.keyword=this.myData[this.sel_index];
+    },
+    selectUp:function () {
+        this.index--;
+        if(this.sel_index==-2)this.sel_index=this.myData.length-1;
+        this.keyword=this.myData[this.sel_index];
+    },
   },
   mounted () {
-    window.addEventListener('scroll', this.handleScroll)
+    window.addEventListener('scroll', this.handleScroll);
   },
   destroyed () {
     window.removeEventListener('scroll', this.handleScroll)

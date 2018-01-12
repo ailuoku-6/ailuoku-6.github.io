@@ -6,8 +6,9 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="baidu-site-verification" content="W03XQFmGwe" />
   <link href="https://cdn.bootcss.com/iview/2.8.0/styles/iview.css" rel="stylesheet">
-  <script src="https://cdn.bootcss.com/vue/2.5.13/vue.min.js"></script>
-  <script src="https://cdn.bootcss.com/iview/2.8.0/iview.min.js"></script>
+  <script type="text/javascript" src="http://vuejs.org/js/vue.js"></script>
+  <script src="https://cdn.bootcss.com/iview/2.8.0/iview.js"></script>
+  <script src="https://cdn.bootcss.com/vue-resource/0.7.0/vue-resource.js"></script>
   <link rel="stylesheet" href="css/style.css">
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
   <style media="screen">
@@ -40,13 +41,18 @@
   <div id="allsite">
     <header class="nav-header">
       <div class="gy-nav-header gy-hoverable" v-bind:class="{'gy-shadow-2': scrolled}">
-        <form class="sear_wrap" onsubmit="return baiduWithHttps(this)" action="https://www.baidu.com/s" target="_blank">
+        <div class="sear_wrap">
           <div class="sear_marchine"></div>
-          <input autocomplete="off" type="text" onfocus="checkHttps" name="wd" size="30" id="seacing_bar" placeholder="搜你所想" baidusug="1">
-          <input class="gy-button" id="seaching" type="submit" value="百度一下">
-        </form>
+          <input type="text"  id="seacing_bar" placeholder="搜你所想" v-model="keyword" @keyup="get($event)" @keydown.down.prevent="selectDown"
+    @keydown.up.prevent="selectUp" autocomplete="off">
+          <div class="gy-button" id="seaching" v-on:click="baiduyixia()">百度一下</div>
+          <ul class="sug" v-show="isShow">
+            <li v-for="(value,index) in myData"  :class="{selected:index==sel_index}" v-on:click="clickitem(value)">{{value}}</li>
+          </ul>
+        </div>
       </div>
     </header>
+    <div v-on:click="hidesug()">
       <div class="gy-container gy-shadow-2" id="first_container">
         <div class="title" id="">常用站点</div>
         <div class="gy-divider gy-divider-coustom"></div>
@@ -63,8 +69,8 @@
             </li>
           </i-col>
         </Row>
-
         </div>
+
         <div class="gy-container-full">
           <Row>
             <i-col v-for="category in categorylist" :xs="24" :md="8">
@@ -79,30 +85,19 @@
           </Row>
         </div>
 
-    <footer>
-      <div class="about">
-        <div>BY <a href="http://weibo.com/ailuoku6" target="_blank">@爱咯酷6</a> ,Version:V1.1</div>
-        <div>提建议: <a href="http://wpa.qq.com/msgrd?v=3&uin=2275789909&site=qq&menu=yes" target="_blank"><img src="img/kefu.png"></a></div>
-      </div>
-    </footer>
+        <footer>
+          <div class="about">
+            <div>BY <a href="http://weibo.com/ailuoku6" target="_blank">@爱咯酷6</a> ,Version:V1.1</div>
+            <div>提建议: <a href="http://wpa.qq.com/msgrd?v=3&uin=2275789909&site=qq&menu=yes" target="_blank"><img src="img/kefu.png"></a></div>
+          </div>
+        </footer>
+    </div>
+
   </div>
 
 </body>
-<script charset="utf-8" src="js/opensug.js"></script>
-<script src="https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/cache/static/protocol/https/global/js/all_async_search_0340327.js" charset="utf-8"></script>
+<!-- <script charset="utf-8" src="js/opensug.js"></script> -->
+<!-- <script src="https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/cache/static/protocol/https/global/js/all_async_search_0340327.js" charset="utf-8"></script> -->
 <script src="js/index.js" charset="utf-8"></script>
-<script type="text/javascript">
-  function checkHttps () {
-    BaiduHttps.useHttps();
-  };
-  function baiduWithHttps (formname) {
-    var data = BaiduHttps.useHttps();
-    if (data.s === 0) {
-      return true;
-    }else {
-      formname.action = 'https://www.baidu.com/baidu' + '?ssl_s=1&ssl_c' + data.ssl_code;
-      return true;
-    }
-  };
-</script>
+<!-- <script src="js/ctrl.js" charset="utf-8"></script> -->
 </html>

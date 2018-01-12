@@ -26,7 +26,7 @@
 .gy-button{
   position: relative;
     display: inline-block;
-    min-width: 88px;
+    width: 88px;
     height: 36px;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
@@ -143,7 +143,23 @@ header{
 #seaching{
   border-radius: 0px;
 }
-
+.sug{
+  width: 50%;
+  position: absolute;
+  background-color: #fff;
+  border: 1px solid blue;
+}
+.sug li {
+  width: 100%;
+}
+.sug li:hover{
+  background-color: #1c12db5e;
+  color: #fff;
+}
+.selected{
+  background-color: #3f51b5;
+  color: #fff;
+}
 #first_container{
   margin-top: 80px;
   max-width: 1080px;
