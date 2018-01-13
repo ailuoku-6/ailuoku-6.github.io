@@ -102,7 +102,8 @@ var allsite = new Vue({
     myData:[],
     keyword:'',
     sel_index:0,
-    isShow :false
+    isShow :false,
+    flag :"pc"
   },
   methods: {
     handleScroll:function() {
@@ -116,14 +117,16 @@ var allsite = new Vue({
       this.isShow = false;
     },
     baiduyixia:function (){
-      this.$refs.fix_miui_bug.click();
-      window.open('https://www.baidu.com/s?wd='+this.keyword);
+      if (this.flag == "phone") {
+        window.location.href="https://www.baidu.com/s?wd="+this.keyword;
+      }else {
+        window.open('https://www.baidu.com/s?wd='+this.keyword);
+      }
     },
     get:function (event) {
       if(event.keyCode==38||event.keyCode==40)return;
       if(event.keyCode==13){
-          this.$refs.fix_miui_bug.click();
-          window.open('https://www.baidu.com/s?wd='+this.keyword);
+          this.baiduyixia();
       }
       this.$http.jsonp('https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd',{
           wd:this.keyword
@@ -157,13 +160,23 @@ var allsite = new Vue({
         duration: 3,
         closable: true
       });
-    }
+    },
+    judge:function(){
+      var sUserAgent=navigator.userAgent;
+      var mobileAgents=['Android','iPhone','Symbian','WindowsPhone','iPod','BlackBerry','Windows CE'];
+      for( var i=0;i<mobileAgents.length;i++){
+        if(sUserAgent.indexOf(mobileAgents[i]) > -1){
+            this.flag = "phone";
+            break;
+        }
+      }
+    },
   },
   mounted:function () {
     window.addEventListener('scroll', this.handleScroll);
+    this.judge();
   },
   destroyed:function () {
     window.removeEventListener('scroll', this.handleScroll)
   },
-
 });
