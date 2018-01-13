@@ -116,11 +116,13 @@ var allsite = new Vue({
       this.isShow = false;
     },
     baiduyixia:function (){
+      this.$refs.fix_miui_bug.click();
       window.open('https://www.baidu.com/s?wd='+this.keyword);
     },
     get:function (event) {
       if(event.keyCode==38||event.keyCode==40)return;
       if(event.keyCode==13){
+          this.$refs.fix_miui_bug.click();
           window.open('https://www.baidu.com/s?wd='+this.keyword);
       }
       this.$http.jsonp('https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd',{
