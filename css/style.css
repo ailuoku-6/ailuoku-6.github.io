@@ -230,6 +230,9 @@ a:hover{
   margin: 0 2px;
   padding: 3px;
 }
+.site:hover{
+  background-color: #f1f1f1;
+}
 .site-icon{
   width: 70px;
   height: 70px;

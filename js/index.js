@@ -103,7 +103,8 @@ var allsite = new Vue({
     keyword:'',
     sel_index:0,
     isShow :false,
-    flag :"pc"
+    flag :"pc",
+    pattern:/(http|ftp|https):\/\/[\w\-_]+(\.[\w\-_]+)+([\w\-\.,@?^=%&:\/~\+#]*[\w\-\@?^=%&\/~\+#])?/g,
   },
   methods: {
     handleScroll:function() {
@@ -117,10 +118,18 @@ var allsite = new Vue({
       this.isShow = false;
     },
     baiduyixia:function (){
-      if (this.flag == "phone") {
-        window.location.href="https://www.baidu.com/s?wd="+this.keyword;
+      if (this.pattern.test(this.keyword)) {
+        if (this.flag == "phone") {
+          window.location.href=this.keyword;
+        }else {
+          window.open(this.keyword);
+        }
       }else {
-        window.open('https://www.baidu.com/s?wd='+this.keyword);
+        if (this.flag == "phone") {
+          window.location.href="https://www.baidu.com/s?wd="+this.keyword;
+        }else {
+          window.open('https://www.baidu.com/s?wd='+this.keyword);
+        }
       }
     },
     get:function (event) {
