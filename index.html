@@ -39,10 +39,10 @@
   <title>GY上网导航</title>
 </head>
 <body>
-  <div id="allsite">
+  <div id="allsite" v-on:click="hidesug()">
     <header class="nav-header">
       <div class="gy-nav-header gy-hoverable" v-bind:class="{'gy-shadow-2': scrolled}">
-        <div class="sear_wrap">
+        <div class="sear_wrap" @click.stop="">
           <div class="sear_marchine"></div>
           <input type="text"  id="seacing_bar" placeholder="搜你所想" v-model="keyword" @keyup="get($event)" @keydown.down.prevent="selectDown"
     @keydown.up.prevent="selectUp" ref="input_area" autocomplete="off">
@@ -54,46 +54,45 @@
         </div>
       </div>
     </header>
-    <div v-on:click="hidesug()">
-      <div class="gy-container gy-shadow-2" id="first_container">
-        <div class="title" id="">常用站点</div>
-        <div class="gy-divider gy-divider-coustom"></div>
 
-        <Row type="flex" justify="space-around" class="code-row-bg">
-          <i-col v-for="sitelist in comsitelist" :xs="8" :md="2" class="gy-cell">
-            <li class="site gy-hoverable">
-              <a v-bind:href="sitelist.url" target="_blank">
-                <div>
-                  <img v-bind:src="sitelist.icon" class="site-icon">
-                </div>
-                <span class="site-title">{{sitelist.site_name}}</span>
-              </a>
-            </li>
+    <div class="gy-container gy-shadow-2" id="first_container">
+      <div class="title" id="">常用站点</div>
+      <div class="gy-divider gy-divider-coustom"></div>
+
+      <Row type="flex" justify="space-around" class="code-row-bg">
+        <i-col v-for="sitelist in comsitelist" :xs="8" :md="2" class="gy-cell">
+          <li class="site gy-hoverable">
+            <a v-bind:href="sitelist.url" target="_blank">
+              <div>
+                <img v-bind:src="sitelist.icon" class="site-icon">
+              </div>
+              <span class="site-title">{{sitelist.site_name}}</span>
+            </a>
+          </li>
+        </i-col>
+      </Row>
+      </div>
+
+      <div class="gy-container-full">
+        <Row :gutter="16" type="flex" justify="center" align="top">
+          <i-col v-for="category in categorylist" :xs="24" :sm="12" :md="8">
+            <div class="site-card gy-shadow-2">
+              <div class="title">{{category.categoryname}}</div>
+              <div class="gy-divider"></div>
+              <div class="gy-list">
+                <li v-for="sitelist in category.sitelist" class="site-noicon gy-hoverable"><a v-bind:href="sitelist.url" target="_blank">{{sitelist.site_name}}</a></li>
+              </div>
+            </div>
           </i-col>
         </Row>
-        </div>
+      </div>
 
-        <div class="gy-container-full">
-          <Row :gutter="16" type="flex" justify="center" align="top">
-            <i-col v-for="category in categorylist" :xs="24" :sm="12" :md="8">
-              <div class="site-card gy-shadow-2">
-                <div class="title">{{category.categoryname}}</div>
-                <div class="gy-divider"></div>
-                <div class="gy-list">
-                  <li v-for="sitelist in category.sitelist" class="site-noicon gy-hoverable"><a v-bind:href="sitelist.url" target="_blank">{{sitelist.site_name}}</a></li>
-                </div>
-              </div>
-            </i-col>
-          </Row>
+      <footer>
+        <div class="about">
+          <div>BY <a href="http://weibo.com/ailuoku6" target="_blank">@爱咯酷6</a> ,Version:V1.1</div>
+          <div>提建议: <a href="http://wpa.qq.com/msgrd?v=3&uin=2275789909&site=qq&menu=yes" target="_blank"><img src="img/kefu.png"></a></div>
         </div>
-
-        <footer>
-          <div class="about">
-            <div>BY <a href="http://weibo.com/ailuoku6" target="_blank">@爱咯酷6</a> ,Version:V1.1</div>
-            <div>提建议: <a href="http://wpa.qq.com/msgrd?v=3&uin=2275789909&site=qq&menu=yes" target="_blank"><img src="img/kefu.png"></a></div>
-          </div>
-        </footer>
-    </div>
+      </footer>
     <div @click="info()">
       <Icon type="help-circled" size="25" color="#1296db" class="floatButton"></Icon>
     </div>
