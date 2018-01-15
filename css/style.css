@@ -163,8 +163,8 @@ header{
 .sug{
   width: 50%;
   position: absolute;
-  background-color: #fff;
-  border: 1px solid blue;
+  background-color: #fafafa;
+  border: 1px solid #3d8aff;
 }
 .sug a{
   width: 100%;
