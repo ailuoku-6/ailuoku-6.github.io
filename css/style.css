@@ -175,11 +175,11 @@ header{
   display: block;
 }
 .sug a:hover{
-  background-color: #c873ff;
+  background-color: #3f51b5;
   color: #fff;
 }
 .selected{
-  background-color: #3f51b5;
+  background-color: #4a65a9;
   color: #fff;
 }
 #first_container{
