@@ -104,6 +104,7 @@ var allsite = new Vue({
     sel_index:0,
     isShow :false,
     flag :"pc",
+    apiUrl:'https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd',
     pattern:/(http|ftp|https):\/\/[\w\-_]+(\.[\w\-_]+)+([\w\-\.,@?^=%&:\/~\+#]*[\w\-\@?^=%&\/~\+#])?/g,
   },
   methods: {
@@ -137,7 +138,7 @@ var allsite = new Vue({
       if(event.keyCode==13){
           this.baiduyixia();
       }
-      this.$http.jsonp('https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd',{
+      this.$http.jsonp(this.apiUrl,{
           wd:this.keyword
       },{
           jsonp:'cb'
