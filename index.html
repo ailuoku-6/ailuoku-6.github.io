@@ -44,8 +44,7 @@
       <div class="gy-nav-header gy-hoverable" v-bind:class="{'gy-shadow-2': scrolled}">
         <div class="sear_wrap" @click.stop="">
           <div class="sear_marchine"></div>
-          <input type="text"  id="seacing_bar" placeholder="搜你所想" v-model="keyword" @keyup="get($event)" @keydown.down.prevent="selectDown"
-    @keydown.up.prevent="selectUp" ref="input_area" autocomplete="off">
+          <input type="text"  id="seacing_bar" placeholder="搜你所想" v-model="keyword" @keyup="get($event)" @keydown.down.prevent="selectDown" @keydown.up.prevent="selectUp" ref="input_area" autocomplete="off">
           <div class="gy-button" id="seaching" v-on:click="baiduyixia()">百度一下</div>
           <ul class="sug" v-show="isShow">
             <!-- <li v-for="(value,index) in myData"  :class="{selected:index==sel_index}"><a v-bind:href="['https://www.baidu.com/s?wd='+value]" target="_blank">{{value}}</a></li> -->
