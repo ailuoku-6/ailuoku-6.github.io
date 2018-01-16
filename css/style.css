@@ -164,7 +164,8 @@ header{
   width: 50%;
   position: absolute;
   background-color: #fafafa;
-  border: 1px solid #3d8aff;
+  /* border: 1px solid #3d8aff; */
+  box-shadow: 0 2px 6px 0 rgba(63, 81, 181,0.5);
 }
 .sug a{
   width: 100%;
