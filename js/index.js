@@ -181,10 +181,14 @@ var allsite = new Vue({
         }
       }
     },
+    page_init:function(){
+      this.$refs.sug.style.width = this.$refs.input_area.clientWidth +'px';
+    }
   },
   mounted:function () {
     window.addEventListener('scroll', this.handleScroll);
     this.judge();
+    this.page_init();
   },
   destroyed:function () {
     window.removeEventListener('scroll', this.handleScroll)
