@@ -182,7 +182,7 @@ var allsite = new Vue({
       }
     },
     page_init:function(){
-      this.$refs.sug.style.width = this.$refs.input_area.clientWidth +'px';
+      this.$refs.sug.style.width = this.$refs.input_area.clientWidth + 13 + 'px';
     }
   },
   mounted:function () {
