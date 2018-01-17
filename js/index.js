@@ -138,15 +138,18 @@ var allsite = new Vue({
       if(event.keyCode==13){
           this.baiduyixia();
       }
-      this.$http.jsonp(this.apiUrl,{
-          wd:this.keyword
-      },{
-          jsonp:'cb'
-      }).then(function (res) {
-          this.myData=res.data.s;
-      },function () {
 
-      });
+      this.$http.jsonp('https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su',{
+            params:{
+                wd:this.keyword
+            },
+            jsonp:"cb"
+      }).then(response=>{
+            this.myData=response.body.s;
+      },response=>{
+          console.log("err"+response.body)
+      })
+
       this.sel_index =-1;
       if (this.keyword.replace(/(^s*)|(s*$)/g, "")!="") {
         this.isShow = true;
