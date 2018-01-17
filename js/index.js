@@ -139,7 +139,7 @@ var allsite = new Vue({
           this.baiduyixia();
       }
 
-      this.$http.jsonp('https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su',{
+      this.$http.jsonp(this.apiUrl,{
             params:{
                 wd:this.keyword
             },
