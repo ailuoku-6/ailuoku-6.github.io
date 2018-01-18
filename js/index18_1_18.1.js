@@ -138,23 +138,7 @@ var allsite = new Vue({
       if(event.keyCode==13){
           this.baiduyixia();
       }
-
-      this.$http.jsonp(this.apiUrl,{
-           wd:this.keyword
-      },{
-           jsonp:'cb'
-      }).then(function (res) {
-           this.myData=res.data.s;
-      },function () {
-
-      });
-
-      this.sel_index =-1;
-      if (this.keyword.replace(/(^s*)|(s*$)/g, "")!="") {
-        this.isShow = true;
-      }else {
-        this.isShow = false;
-      }
+      this.requestData();
     },
     selectDown:function () {
         this.sel_index++;
@@ -165,6 +149,23 @@ var allsite = new Vue({
         this.sel_index--;
         this.sel_index = (this.myData.length+this.sel_index)%this.myData.length;
         this.keyword=this.myData[this.sel_index];
+    },
+    requestData:function(){
+      this.$http.jsonp(this.apiUrl,{
+           wd:this.keyword
+      },{
+           jsonp:'cb'
+      }).then(function (res) {
+           this.myData=res.data.s;
+      },function () {
+
+      });
+      this.sel_index =-1;
+      if (this.keyword.replace(/(^s*)|(s*$)/g, "")!="") {
+        this.isShow = true;
+      }else {
+        this.isShow = false;
+      }
     },
     info:function (){
       this.$Message.info({
