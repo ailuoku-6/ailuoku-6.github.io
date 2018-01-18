@@ -140,15 +140,14 @@ var allsite = new Vue({
       }
 
       this.$http.jsonp(this.apiUrl,{
-            params:{
-                wd:this.keyword
-            },
-            jsonp:"cb"
-      }).then(response=>{
-            this.myData=response.body.s;
-      },response=>{
-          console.log("err"+response.body)
-      })
+           wd:this.keyword
+      },{
+           jsonp:'cb'
+      }).then(function (res) {
+           this.myData=res.data.s;
+      },function () {
+
+      });
 
       this.sel_index =-1;
       if (this.keyword.replace(/(^s*)|(s*$)/g, "")!="") {
