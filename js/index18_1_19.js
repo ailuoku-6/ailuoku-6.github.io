@@ -101,6 +101,7 @@ var allsite = new Vue({
     scrolled:false,
     myData:[],
     keyword:'',
+    keysug:'',
     sel_index:0,
     isShow :false,
     flag :"pc",
@@ -134,10 +135,8 @@ var allsite = new Vue({
       }
     },
     get:function (event) {
-      if(event.keyCode==38||event.keyCode==40)return;
-      if(event.keyCode==13){
-          this.baiduyixia();
-      }
+      if(event.keyCode==37||event.keyCode==38||event.keyCode==39||event.keyCode==40)return;
+      if(event.keyCode==13)this.baiduyixia();
       this.requestData();
     },
     selectDown:function () {
@@ -197,3 +196,7 @@ var allsite = new Vue({
     window.removeEventListener('scroll', this.handleScroll)
   },
 });
+
+// allsite.$watch('keysug',function(){
+//   this.requestData();
+// });
