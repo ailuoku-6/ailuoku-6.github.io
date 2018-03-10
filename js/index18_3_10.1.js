@@ -171,6 +171,10 @@ var allsite = new Vue({
         this.button_value = "百度知道";
         this.searApi = "https://zhidao.baidu.com/search?word=";
         this.searApi_weizui = "";
+      }else if (Marchine == "pandd") {
+        this.button_value = "搜网盘";
+        this.searApi = "http://www.panduoduo.net/s/name/";
+        this.searApi_weizui = "";
       }
       this.searchEngine = Marchine;
       localStorage.searApi = this.searApi;

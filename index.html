@@ -53,6 +53,7 @@
               <a @click="selectMarchine('360photo')" :class="{selected:searchEngine=='360photo'}">图片搜索</a>
               <a @click="selectMarchine('baidutieba')" :class="{selected:searchEngine=='baidutieba'}">贴吧</a>
               <a @click="selectMarchine('baiduzhidao')" :class="{selected:searchEngine=='baiduzhidao'}">知道</a>
+              <a @click="selectMarchine('pandd')" :class="{selected:searchEngine=='pandd'}">网盘</a>
             </ul>
           </div>
           <input type="text"  id="seacing_bar" placeholder="搜你所想" v-model="keyword" @keyup="get($event)" @keydown.down.prevent="selectDown" @keydown.up.prevent="selectUp" ref="input_area" autocomplete="off" @click="hidesug()">
@@ -108,7 +109,7 @@
     </div>
   </div>
 </body>
-<script src="js/index18_3_10.js"></script>
+<script src="js/index18_3_10.1.js"></script>
 <script>
   (function(){
       var bp = document.createElement('script');
