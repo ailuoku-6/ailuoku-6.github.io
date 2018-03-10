@@ -153,8 +153,21 @@ header{
 }
 .sear_marchine{
   display: inline-block;
-  /*margin-left: 5px;*/
-  margin-right: 5px;
+  margin-left: 6px;
+  margin-right: 3px;
+}
+
+#sear_marchine_select{
+  margin-left: -6px;
+  margin-top: 7px;
+  width: 70px;
+}
+
+#sear_marchine_select a{
+  text-align: left;
+  padding-left: 10px;
+  font-size: 14px;
+  display: block;
 }
 
 #seaching{
@@ -289,17 +302,17 @@ a:hover{
 }
 @media screen and (min-width:320px){
   #seacing_bar{
-    width: 165px;
+    width: 160px;
   }
 }
 @media screen and (min-width:375px){
   #seacing_bar{
-    width: 216px;
+    width: 212px;
   }
 }
 @media screen and (min-width:425px){
   #seacing_bar{
-    width: 270px;
+    width: 268px;
   }
 }
 @media screen and (min-width:600px){
@@ -307,7 +320,7 @@ a:hover{
     font-size: 14.5px;
   }
   #seacing_bar{
-    width: 320px;
+    width: 319px;
   }
   .gy-container {
     width: 94%;

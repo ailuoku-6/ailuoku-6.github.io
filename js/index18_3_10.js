@@ -98,13 +98,19 @@ var allsite = new Vue({
         ],
       },
     ],
+    button_value:"百度一下",
+    searApi:"",
+    searApi_weizui:"",
+    searchEngine:"",
     scrolled:false,
     myData:[],
     keyword:'',
     keysug:'',
     sel_index:0,
     isShow :false,
+    isShowSelect:false,
     flag :"pc",
+    sugflag: false,
     apiUrl:'https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd',
     pattern:/(http|ftp|https):\/\/[\w\-_]+(\.[\w\-_]+)+([\w\-\.,@?^=%&:\/~\+#]*[\w\-\@?^=%&\/~\+#])?/g,
   },
@@ -116,11 +122,63 @@ var allsite = new Vue({
         this.scrolled = true;
       }
     },
-    hidesug:function(){
+    hidesug:function(item){
+      if (item == "all") {
+        this.isShow = false;
+        this.isShowSelect = false;
+      }else if (item == "sug") {
+        this.isShow = false;
+      }else {
+        this.isShowSelect = false;
+        this.sugflag = ~ this.sugflag;
+        if (this.sugflag) {
+          this.isShow = true;
+        }else {
+          this.isShow = false;
+        }
+      }
+    },
+    changeMarchine:function() {
+      this.isShowSelect = ~ this.isShowSelect;
       this.isShow = false;
     },
+    selectMarchine:function(Marchine){
+      if (Marchine == "baidu") {
+        this.button_value = "百度一下";
+        this.searApi = "https://www.baidu.com/s?wd=";
+        this.searApi_weizui = "";
+      }else if (Marchine == "google") {
+        this.button_value = "谷歌一下";
+        this.searApi = "https://www.google.com/#q=";
+        this.searApi_weizui = "";
+      }else if (Marchine == "360") {
+        this.button_value = "360搜";
+        this.searApi = "https://www.so.com/s?ie=utf-8&fr=none&src=360sou_newhome&q=";
+        this.searApi_weizui = "";
+      }else if (Marchine == "bing") {
+        this.button_value = "必应搜索";
+        this.searApi = "https://www.bing.com/search?q=";
+        this.searApi_weizui = "";
+      }else if (Marchine == "360photo") {
+        this.button_value = "图片搜索";
+        this.searApi = "http://image.so.com/i?q=";
+        this.searApi_weizui = "&src=srp";
+      }else if (Marchine == "baidutieba") {
+        this.button_value = "贴吧搜索";
+        this.searApi = "https://tieba.baidu.com/f?kw=";
+        this.searApi_weizui = "";
+      }else if (Marchine == "baiduzhidao") {
+        this.button_value = "百度知道";
+        this.searApi = "https://zhidao.baidu.com/search?word=";
+        this.searApi_weizui = "";
+      }
+      this.searchEngine = Marchine;
+      localStorage.searApi = this.searApi;
+      localStorage.searchEngine = this.searchEngine;
+    },
     baiduyixia:function (){
-      if (this.pattern.test(this.keyword)) {
+      this.isShowSelect = false;
+      if (this.pattern.test(this.keyword)) {//判断是否是网址
         if (this.flag == "phone") {
           window.location.href=this.keyword;
         }else {
@@ -128,9 +186,9 @@ var allsite = new Vue({
         }
       }else {
         if (this.flag == "phone") {
-          window.location.href="https://www.baidu.com/s?wd="+this.keyword;
+          window.location.href=this.searApi+this.keyword+this.searApi_weizui;
         }else {
-          window.open('https://www.baidu.com/s?wd='+this.keyword);
+          window.open(this.searApi+this.keyword+this.searApi_weizui);
         }
       }
     },
@@ -184,7 +242,22 @@ var allsite = new Vue({
       }
     },
     page_init:function(){
-      this.$refs.sug.style.width = this.$refs.input_area.clientWidth + 13 + 'px';
+      this.$refs.sug.style.width = this.$refs.input_area.clientWidth + 25 + 'px';
+      if (localStorage.searApi) {
+        this.searApi = localStorage.searApi;
+      }
+      else {
+        this.searApi = "https://www.baidu.com/s?wd=";
+        localStorage.searApi = this.searApi;
+      }
+      if (localStorage.searchEngine) {
+        this.searchEngine = localStorage.searchEngine;
+      }
+      else {
+        this.searchEngine = "baidu";
+        localStorage.searchEngine = this.searchEngine;
+      }
+      this.selectMarchine(this.searchEngine);
     }
   },
   mounted:function () {
@@ -196,7 +269,3 @@ var allsite = new Vue({
     window.removeEventListener('scroll', this.handleScroll)
   },
 });
-
-// allsite.$watch('keysug',function(){
-//   this.requestData();
-// });

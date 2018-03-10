@@ -10,7 +10,7 @@
   <script src="https://cdn.bootcss.com/vue/2.5.13/vue.min.js"></script>
   <script src="https://cdn.bootcss.com/iview/2.8.0/iview.js"></script>
   <script src="https://cdn.bootcss.com/vue-resource/0.7.0/vue-resource.js"></script>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style18_3_10.css">
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
   <style media="screen">
     #seacing_bar{
@@ -39,16 +39,27 @@
   <title>GY上网导航</title>
 </head>
 <body>
-  <div id="allsite" @click="hidesug()">
+  <div id="allsite" @click="hidesug('all')">
     <header class="nav-header">
       <div class="gy-nav-header gy-hoverable" v-bind:class="{'gy-shadow-2': scrolled}">
         <div class="sear_wrap" @click.stop="">
-          <div class="sear_marchine"></div>
-          <input type="text"  id="seacing_bar" placeholder="搜你所想" v-model="keyword" @keyup="get($event)" @keydown.down.prevent="selectDown" @keydown.up.prevent="selectUp" ref="input_area" autocomplete="off">
-          <div class="gy-button" id="seaching" @click="baiduyixia()">百度一下</div>
+          <div class="sear_marchine" @click="changeMarchine()">
+            <Icon type="arrow-down-b"></Icon>
+            <ul class="sug" id="sear_marchine_select" v-show="isShowSelect">
+              <a @click="selectMarchine('baidu')" :class="{selected:searchEngine=='baidu'}">百度</a>
+              <a @click="selectMarchine('google')" :class="{selected:searchEngine=='google'}">谷歌</a>
+              <a @click="selectMarchine('360')" :class="{selected:searchEngine=='360'}">360搜索</a>
+              <a @click="selectMarchine('bing')" :class="{selected:searchEngine=='bing'}">必应搜索</a>
+              <a @click="selectMarchine('360photo')" :class="{selected:searchEngine=='360photo'}">图片搜索</a>
+              <a @click="selectMarchine('baidutieba')" :class="{selected:searchEngine=='baidutieba'}">贴吧</a>
+              <a @click="selectMarchine('baiduzhidao')" :class="{selected:searchEngine=='baiduzhidao'}">知道</a>
+            </ul>
+          </div>
+          <input type="text"  id="seacing_bar" placeholder="搜你所想" v-model="keyword" @keyup="get($event)" @keydown.down.prevent="selectDown" @keydown.up.prevent="selectUp" ref="input_area" autocomplete="off" @click="hidesug()">
+          <div class="gy-button" id="seaching" @click="baiduyixia()">{{button_value}}</div>
           <ul class="sug" v-show="isShow" ref="sug">
             <!-- <li v-for="(value,index) in myData"  :class="{selected:index==sel_index}"><a v-bind:href="['https://www.baidu.com/s?wd='+value]" target="_blank">{{value}}</a></li> -->
-            <a v-for="(value,index) in myData"  :class="{selected:index==sel_index}" v-bind:href="['https://www.baidu.com/s?wd='+value]" target="_blank">{{value}}</a>
+            <a v-for="(value,index) in myData"  :class="{selected:index==sel_index}" v-bind:href="[searApi+value+searApi_weizui]" target="_blank">{{value}}</a>
           </ul>
         </div>
       </div>
@@ -97,7 +108,7 @@
     </div>
   </div>
 </body>
-<script src="js/index18_1_19.js"></script>
+<script src="js/index18_3_10.js"></script>
 <script>
   (function(){
       var bp = document.createElement('script');
