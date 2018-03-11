@@ -229,10 +229,10 @@ var allsite = new Vue({
       }
     },
     info:function (){
-      this.$Message.info({
-        content: '如果布局混乱，请尝试清除浏览器缓存！',
-        duration: 3,
-        closable: true
+      const content = "<p>2018.3.11</p><p>1.增加切换搜索引擎功能，你选择的搜索引擎记录在本地，如不能记录，请升级浏览器！</p><p>2.搜索框输入网址可直接跳转，而不是搜索.(测试阶段)</p>"
+      this.$Modal.info({
+        title: "更新日志",
+        content: content,
       });
     },
     judge:function(){
