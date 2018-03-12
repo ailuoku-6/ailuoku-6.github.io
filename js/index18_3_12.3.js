@@ -181,8 +181,13 @@ var allsite = new Vue({
         this.searApi_weizui = "";
       }else if (Marchine == "wenku") {
         this.button_value = "搜文库";
-        this.searApi = "https://wenku.baidu.com/search?word=";
-        this.searApi_weizui = "";
+        if (this.flag == "phone") {
+          this.searApi = "https://wk.baidu.com/search?word=";
+          this.searApi_weizui = "";
+        } else {
+          this.searApi = "https://wenku.baidu.com/search?word=";
+          this.searApi_weizui = "&lm=0&od=0&fr=top_home&ie=utf-8";
+        }
       }else if (Marchine == "csdn") {
         this.button_value = "搜csdn";
         this.searApi = "http://so.csdn.net/so/search/s.do?q=";
