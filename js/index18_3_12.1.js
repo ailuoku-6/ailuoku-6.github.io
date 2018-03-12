@@ -175,6 +175,10 @@ var allsite = new Vue({
         this.button_value = "搜网盘";
         this.searApi = "http://www.panduoduo.net/s/name/";
         this.searApi_weizui = "";
+      }else if (Marchine == "zhihu") {
+        this.button_value = "知乎搜索";
+        this.searApi = "https://www.zhihu.com/search?type=content&q=";
+        this.searApi_weizui = "";
       }
       this.searchEngine = Marchine;
       localStorage.searApi = this.searApi;
@@ -229,7 +233,7 @@ var allsite = new Vue({
       }
     },
     info:function (){
-      const content = "<p>2018.3.11</p><p>1.增加切换搜索引擎功能，你选择的搜索引擎记录在本地，如不能记录，请升级浏览器！</p><p>2.搜索框输入网址可直接跳转，而不是搜索.(测试阶段)</p><p>2018.3.12</p><p>添加一些过渡动画</p>"
+      const content = "<p>2018.3.11</p><p>1.增加切换搜索引擎功能，你选择的搜索引擎记录在本地，如不能记录，请升级浏览器！</p><p>2.搜索框输入网址可直接跳转，而不是搜索.(测试阶段)</p><p>2018.3.12</p><p>添加一些过渡动画,加入知乎搜索</p>"
       this.$Modal.info({
         title: "更新日志",
         content: content,
@@ -247,14 +251,14 @@ var allsite = new Vue({
     },
     page_init:function(){
       this.$refs.sug.style.width = this.$refs.input_area.clientWidth + 25 + 'px';
-      if (localStorage.searApi) {
+      if (localStorage.searApi) {//初始化searapi
         this.searApi = localStorage.searApi;
       }
       else {
         this.searApi = "https://www.baidu.com/s?wd=";
         localStorage.searApi = this.searApi;
       }
-      if (localStorage.searchEngine) {
+      if (localStorage.searchEngine) {//初始化searchEngine
         this.searchEngine = localStorage.searchEngine;
       }
       else {
