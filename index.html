@@ -10,7 +10,7 @@
   <script src="https://cdn.bootcss.com/vue/2.5.13/vue.min.js"></script>
   <script src="https://cdn.bootcss.com/iview/2.8.0/iview.js"></script>
   <script src="https://cdn.bootcss.com/vue-resource/0.7.0/vue-resource.js"></script>
-  <link rel="stylesheet" href="css/style18_3_12.3.css">
+  <link rel="stylesheet" href="css/style18_3_12.4.css">
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
   <style media="screen">
     #seacing_bar{
@@ -47,17 +47,7 @@
             <Icon type="arrow-down-b"></Icon>
             <transition name="fade">
               <ul class="sug" id="sear_marchine_select" v-show="isShowSelect">
-                <a @click="selectMarchine('baidu')" :class="{selected:searchEngine=='baidu'}">百度</a>
-                <a @click="selectMarchine('google')" :class="{selected:searchEngine=='google'}">谷歌</a>
-                <a @click="selectMarchine('360')" :class="{selected:searchEngine=='360'}">360搜索</a>
-                <a @click="selectMarchine('bing')" :class="{selected:searchEngine=='bing'}">必应搜索</a>
-                <a @click="selectMarchine('zhihu')" :class="{selected:searchEngine=='zhihu'}">知乎搜索</a>
-                <a @click="selectMarchine('wenku')" :class="{selected:searchEngine=='wenku'}">百度文库</a>
-                <a @click="selectMarchine('360photo')" :class="{selected:searchEngine=='360photo'}">图片搜索</a>
-                <a @click="selectMarchine('baidutieba')" :class="{selected:searchEngine=='baidutieba'}">贴吧</a>
-                <a @click="selectMarchine('baiduzhidao')" :class="{selected:searchEngine=='baiduzhidao'}">知道</a>
-                <a @click="selectMarchine('pandd')" :class="{selected:searchEngine=='pandd'}">网盘</a>
-                <a @click="selectMarchine('csdn')" :class="{selected:searchEngine=='csdn'}">csdn</a>
+                <a v-for="marchinelist in Marchinelist" @click="selectMarchine(marchinelist.Marchine_code)" :class="{selected:searchEngine==marchinelist.Marchine_code}">{{marchinelist.Marchine_name}}</a>
               </ul>
             </transition>
           </div>
@@ -114,7 +104,7 @@
     </div>
   </div>
 </body>
-<script src="js/index18_3_12.3.js"></script>
+<script src="js/index18_3_12.4.js"></script>
 <script>
   (function(){
       var bp = document.createElement('script');
