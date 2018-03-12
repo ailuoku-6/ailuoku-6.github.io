@@ -299,6 +299,14 @@ a:hover{
   height: 32px;
   margin-bottom: -10px;
 }
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .1s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
+
 @media screen and (min-width:320px){
   #seacing_bar{
     width: 160px;

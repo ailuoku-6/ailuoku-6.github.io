@@ -10,7 +10,7 @@
   <script src="https://cdn.bootcss.com/vue/2.5.13/vue.min.js"></script>
   <script src="https://cdn.bootcss.com/iview/2.8.0/iview.js"></script>
   <script src="https://cdn.bootcss.com/vue-resource/0.7.0/vue-resource.js"></script>
-  <link rel="stylesheet" href="css/style18_3_11.css">
+  <link rel="stylesheet" href="css/style18_3_12.css">
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
   <style media="screen">
     #seacing_bar{
@@ -45,7 +45,21 @@
         <div class="sear_wrap" @click.stop="">
           <div class="sear_marchine" @click="changeMarchine()">
             <Icon type="arrow-down-b"></Icon>
-            <ul class="sug" id="sear_marchine_select" v-show="isShowSelect">
+
+            <transition name="fade">
+              <ul class="sug" id="sear_marchine_select" v-show="isShowSelect">
+                <a @click="selectMarchine('baidu')" :class="{selected:searchEngine=='baidu'}">百度</a>
+                <a @click="selectMarchine('google')" :class="{selected:searchEngine=='google'}">谷歌</a>
+                <a @click="selectMarchine('360')" :class="{selected:searchEngine=='360'}">360搜索</a>
+                <a @click="selectMarchine('bing')" :class="{selected:searchEngine=='bing'}">必应搜索</a>
+                <a @click="selectMarchine('360photo')" :class="{selected:searchEngine=='360photo'}">图片搜索</a>
+                <a @click="selectMarchine('baidutieba')" :class="{selected:searchEngine=='baidutieba'}">贴吧</a>
+                <a @click="selectMarchine('baiduzhidao')" :class="{selected:searchEngine=='baiduzhidao'}">知道</a>
+                <a @click="selectMarchine('pandd')" :class="{selected:searchEngine=='pandd'}">网盘</a>
+              </ul>
+            </transition>
+
+            <!-- <ul class="sug" id="sear_marchine_select" v-show="isShowSelect">
               <a @click="selectMarchine('baidu')" :class="{selected:searchEngine=='baidu'}">百度</a>
               <a @click="selectMarchine('google')" :class="{selected:searchEngine=='google'}">谷歌</a>
               <a @click="selectMarchine('360')" :class="{selected:searchEngine=='360'}">360搜索</a>
@@ -54,7 +68,7 @@
               <a @click="selectMarchine('baidutieba')" :class="{selected:searchEngine=='baidutieba'}">贴吧</a>
               <a @click="selectMarchine('baiduzhidao')" :class="{selected:searchEngine=='baiduzhidao'}">知道</a>
               <a @click="selectMarchine('pandd')" :class="{selected:searchEngine=='pandd'}">网盘</a>
-            </ul>
+            </ul> -->
           </div>
           <input type="text"  id="seacing_bar" placeholder="搜你所想" v-model="keyword" @keyup="get($event)" @keydown.down.prevent="selectDown" @keydown.up.prevent="selectUp" ref="input_area" autocomplete="off" @click="hidesug()">
           <div class="gy-button" id="seaching" @click="baiduyixia()">{{button_value}}</div>
@@ -109,7 +123,7 @@
     </div>
   </div>
 </body>
-<script src="js/index18_3_11.js"></script>
+<script src="js/index18_3_12.js"></script>
 <script>
   (function(){
       var bp = document.createElement('script');
