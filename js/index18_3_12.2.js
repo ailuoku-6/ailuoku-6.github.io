@@ -179,6 +179,14 @@ var allsite = new Vue({
         this.button_value = "知乎搜索";
         this.searApi = "https://www.zhihu.com/search?type=content&q=";
         this.searApi_weizui = "";
+      }else if (Marchine == "wenku") {
+        this.button_value = "搜文库";
+        this.searApi = "https://wenku.baidu.com/search?word=";
+        this.searApi_weizui = "";
+      }else if (Marchine == "csdn") {
+        this.button_value = "搜csdn";
+        this.searApi = "http://so.csdn.net/so/search/s.do?q=";
+        this.searApi_weizui = "";
       }
       this.searchEngine = Marchine;
       localStorage.searApi = this.searApi;
@@ -233,7 +241,7 @@ var allsite = new Vue({
       }
     },
     info:function (){
-      const content = "<p>2018.3.11</p><p>1.增加切换搜索引擎功能，你选择的搜索引擎记录在本地，如不能记录，请升级浏览器！</p><p>2.搜索框输入网址可直接跳转，而不是搜索.(测试阶段)</p><p>2018.3.12</p><p>添加一些过渡动画,加入知乎搜索</p>"
+      const content = "<p>2018.3.11</p><p>1.增加切换搜索引擎功能，你选择的搜索引擎记录在本地，如不能记录，请升级浏览器！</p><p>2.搜索框输入网址可直接跳转，而不是搜索.(测试阶段)</p><p>2018.3.12</p><p>添加一些过渡动画,加入知乎搜索,百度文库搜索,csdn搜索</p>"
       this.$Modal.info({
         title: "更新日志",
         content: content,
