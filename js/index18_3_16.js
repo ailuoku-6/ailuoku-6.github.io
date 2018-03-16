@@ -226,11 +226,6 @@ var allsite = new Vue({
         }
       }
     },
-    get:function (event) {
-      if(event.keyCode==37||event.keyCode==38||event.keyCode==39||event.keyCode==40)return;
-      if(event.keyCode==13)this.baiduyixia();
-      this.requestData();
-    },
     selectDown:function () {
         this.sel_index++;
         this.sel_index = this.sel_index%this.myData.length;
@@ -258,8 +253,11 @@ var allsite = new Vue({
         this.isShow = false;
       }
     },
+    inputTest:function (){
+      console.log(this.keyword);
+    },
     info:function (){
-      const content = "<p>2018.3.11</p><p>1.增加切换搜索引擎功能，你选择的搜索引擎记录在本地，如不能记录，请升级浏览器！</p><p>2.搜索框输入网址可直接跳转，而不是搜索.(测试阶段)</p><p>2018.3.12</p><p>添加一些过渡动画,加入知乎搜索,百度文库搜索,csdn搜索</p>"
+      const content = "<p>2018.3.11</p><p>1.增加切换搜索引擎功能，你选择的搜索引擎记录在本地，如不能记录，请升级浏览器！</p><p>2.搜索框输入网址可直接跳转，而不是搜索.(测试阶段)</p><p>2018.3.12</p><p>添加一些过渡动画,加入知乎搜索,百度文库搜索,csdn搜索</p><p>2018.3.16</p><p>修复了一个在edge浏览器上的bug</p>"
       this.$Modal.info({
         title: "更新日志",
         content: content,

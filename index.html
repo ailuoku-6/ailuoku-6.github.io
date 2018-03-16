@@ -10,7 +10,7 @@
   <script src="https://cdn.bootcss.com/vue/2.5.13/vue.min.js"></script>
   <script src="https://cdn.bootcss.com/iview/2.8.0/iview.js"></script>
   <script src="https://cdn.bootcss.com/vue-resource/0.7.0/vue-resource.js"></script>
-  <link rel="stylesheet" href="css/style18_3_12.4.css">
+  <link rel="stylesheet" href="css/style18_3_16.css">
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
   <style media="screen">
     #seacing_bar{
@@ -51,7 +51,7 @@
               </ul>
             </transition>
           </div>
-          <input type="text"  id="seacing_bar" placeholder="搜你所想" v-model="keyword" @keyup="get($event)" @keydown.down.prevent="selectDown" @keydown.up.prevent="selectUp" ref="input_area" autocomplete="off" @click="hidesug()">
+          <input type="text"  id="seacing_bar" placeholder="搜你所想" v-model="keyword" @keyup.enter.prevent="baiduyixia" @keydown.down.prevent="selectDown" @keydown.up.prevent="selectUp" ref="input_area" autocomplete="off" @click="hidesug()" @input="requestData">
           <div class="gy-button" id="seaching" @click="baiduyixia()">{{button_value}}</div>
           <ul class="sug" v-show="isShow" ref="sug">
             <!-- <li v-for="(value,index) in myData"  :class="{selected:index==sel_index}"><a v-bind:href="['https://www.baidu.com/s?wd='+value]" target="_blank">{{value}}</a></li> -->
@@ -104,7 +104,7 @@
     </div>
   </div>
 </body>
-<script src="js/index18_3_12.4.js"></script>
+<script src="js/index18_3_16.js"></script>
 <script>
   (function(){
       var bp = document.createElement('script');
